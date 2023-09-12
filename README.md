@@ -46,7 +46,10 @@
 - Mencentang bagian HTTP Listener on PORT
 - Selesai deploying dan link adaptable sudah dapat diakses
 
+
 ### Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara `urls.py`, `views.py`, `models.py`, dan berkas `html`.
+
+<img src='/assets/BaganTugas2.png'>
 
 
 ### Jelaskan mengapa kita menggunakan ***virtual environment***? Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan ***virtual environment***?
@@ -54,6 +57,7 @@
 Virtual environment merupakan tools yang dapat digunakan dalam pengembangan perangkat lunak Python, termasuk aplikasi web berbasis Django. Program python yang kita berjalan dalam virtualenv memiliki modul-modulnya sendiri dan tidak dapat diakses oleh program dari luar. Dengan virtualenv, kita dapat memiliki program python yang berbeda untuk setiap proyek atau aplikasi yang kita buat. Misal, kita memiliki proyek Django yang berjalan pada Django versi 1.1 dan proyek lain yang memerlukan Django versi 4.0. Melalui virtualenv, setiap proyek yang kita buat akan memiliki versi Django yang sesuai dan tidak bentrok antar proyeknya.
 
 Sebenernya, kita dapat saja membuat aplikasi web berbasis Django tanpa menggunakan virtualenv, tetapi praktik ini kurang dianjurkan. Penggunaan virtualenv sangat berguna untuk mengisolasi package dan dependensi dari sebuah aplikasi serta mencegah konflik dengan versi lain dari proyek-proyek yang kita miliki.
+
 
 ### Jelaskan apakah itu MVC, MVT, MVVM dan perbedaan dari ketiganya.
 
