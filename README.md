@@ -1,8 +1,84 @@
-# Nama    : Muhammad Azmi Falah
-## NPM     : 2206082285
-## Kelas   : PBP-B
+# Muhammad Azmi Falah - 2206082285 - PBP B
 
 **Tautan _Adaptable_**: [Azmuh Global](https://azmuhglobal.adaptable.app/main/)
+
+## Tugas 3:
+
+
+### Apa perbedaan antara form `POST` dan `form` GET dalam Django?
+
+- Form `POST`: Metode `POST` digunakan untuk mengirim data form ke server sebagai bagian dari body permintaan HTTP. Data yang dikirim dengan metode `POST` tidak terlihat dalam URL dan dienkripsi saat dikirimkan. Metode `POST` umumnya digunakan ketika kita ingin mengirim data yang sensitif atau ketika kita ingin melakukan operasi yang mempengaruhi perubahan pada server, seperti membuat, mengubah, atau menghapus data.
+
+- Form `GET`: Metode `GET` digunakan untuk mengirim data form ke server sebagai parameter yang ditambahkan ke URL. Data yang dikirim dengan metode `GET` terlihat dalam URL dan tidak dienkripsi. Metode `GET` umumnya digunakan ketika kita ingin mengambil data dari server tanpa melakukan perubahan pada server, seperti saat melakukan pencarian atau menampilkan halaman yang hanya menampilkan data.
+
+Jadi, perbedaan utama antara form `POST` dan form `GET` adalah:
+
+- **Tujuan Penggunaan**: Form `POST` digunakan untuk mengirim data yang mempengaruhi perubahan pada server, sementara form `GET` digunakan untuk mengambil data dari server tanpa mempengaruhi perubahan pada server.
+
+- **Pengiriman Data**: Data yang dikirim dengan form `POST` tidak terlihat dalam URL dan dienkripsi, sedangkan data yang dikirim dengan form `GET` terlihat dalam URL dan tidak dienkripsi.
+
+
+### Apa perbedaan utama antara XML, JSON, dan HTML dalam konteks pengiriman data?
+
+- **XML (Estensible Markup Language)**: XML, yang merupakan singkatan dari Extensible Markup Language, memiliki desain yang bertujuan agar dapat menjelaskan dirinya sendiri. Dengan membaca XML, kita dapat dengan jelas memahami informasi yang terkandung dalam data tersebut. XML sering digunakan dalam berbagai aplikasi web dan mobile untuk tujuan penyimpanan dan pengiriman data. Dalam XML, data disusun dengan cara ditempatkan dalam elemen-elemen yang diapit oleh _tag_. Untuk berinteraksi dengan data dalam XML, diperlukan penulisan program yang khusus dirancang untuk mengirim, menerima, menyimpan, atau menampilkan informasi yang terkandung dalam format XML.
+
+- **JSON (JavaScript Object Notaioon)**: JSON, yang merupakan singkatan dari JavaScript Object Notation, memiliki desain yang bertujuan agar formatnya dapat secara jelas menjelaskan data yang berisi. JSON sangat mudah dimengerti dan sering digunakan dalam berbagai aplikasi web dan mobile untuk keperluan penyimpanan dan pengiriman data. Sintaks JSON mirip dengan struktur objek dalam bahasa pemrograman JavaScript. Namun, yang membedakan JSON adalah bahwa data dalam format ini disusun dalam bentuk teks, sehingga banyak tersedia kode dalam berbagai bahasa pemrograman yang memungkinkan pembacaan dan pembuatan data dalam format JSON.
+
+- **HTML (Hypertext Markup Language)**: HTML, yang merupakatan singkatan dari Hypertext Markup Language, merupakan bahasa markup yang digunakan untuk menciptakan halaman web yang dapat ditampilkan di browser. Dengan menggunakan tag-tag atau elemen-elemen khusus, HTML memungkinkan pengembang web untuk menandai berbagai jenis konten seperti teks, gambar, tautan, dan elemen lainnya, serta mengontrol tampilan dan struktur halaman web. Dalam HTML, informasi diatur dalam hierarki dengan penggunaan tag dan atribut, yang menjelaskan cara kontennya harus ditampilkan dan berinteraksi di browser. Kemudahan interpretasi dan rendering oleh browser membuat HTML menjadi bahasa utama untuk menyampaikan konten di web dan merupakan dasar dari banyak situs web yang ada saat ini.
+
+Perbedaan utama antara ketiganya terletak pada tujuan dan sintaks yang digunakan. XML dan JSON digunakan untuk data yang memiliki struktur terstruktur, sementara HTML digunakan untuk membuat tampilan halaman web. XML memiliki sintaks yang kompleks, JSON memiliki sintaks yang lebih sederhana, dan HTML memiliki sintaks yang khusus untuk tampilan konten di browser.
+
+
+### Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?
+
+JSON (JavaScript Object Notation) adalah format data yang sering digunakan dalam pertukaran data di aplikasi web modern. Berikut adalah beberapa alasan utama mengapa JSON begitu populer:
+
+1. **Kesederhanaan Sintaksis:** JSON memiliki struktur yang sederhana dan mudah dimengerti, membuatnya sangat user-friendly bagi pengembang. Sintaksis JSON dirancang untuk mudah dibaca dan ditulis.
+
+2. **Ringan:** JSON memiliki ukuran yang ringan, sehingga dapat dengan cepat ditransmisikan melalui jaringan. Kecepatan dan kinerja adalah aspek penting dalam aplikasi web, dan JSON memenuhi kebutuhan ini.
+
+3. **Kompatibilitas Lintas Bahasa:** JSON dapat digunakan dengan berbagai bahasa pemrograman, termasuk JavaScript, Python, PHP, dan Ruby. Ini membuatnya sangat fleksibel dan dapat digunakan dalam berbagai konteks.
+
+4. **Mudah Diparsing:** JSON dapat dengan mudah diparsing, memungkinkan data untuk dengan cepat diubah menjadi struktur yang dapat diproses oleh program. Ini sangat penting untuk aplikasi web yang harus bekerja dengan sejumlah besar data dengan efisien.
+
+5. **Kemudahan dalam Membaca:** JSON adalah format yang mudah dibaca, memudahkan pemahaman bagi pengembang dan pihak terkait lainnya. Kemudahan ini juga membantu dalam proses debugging dan troubleshooting aplikasi web yang menggunakan JSON.
+
+Secara keseluruhan, JSON sering digunakan dalam pertukaran data di aplikasi web modern karena kesederhanaan, ringannya, kompatibilitas lintas bahasa, kemudahan parsing, dan mudah dibaca, semua faktor ini menjadikannya pilihan yang kuat untuk pertukaran data yang efisien dalam ekosistem web.
+
+
+### Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara _step-by-step_ (bukan hanya sekadar mengikuti tutorial).
+
+- Menjalankan virtual environment
+- Mengubah _path_ `main/` menjadi ` ` pada `urlpatterns` pada file `urls.py` dalam folder `AzmuhGlobal`
+- Membuat file `base.html` sebagai kerangka umum untuk halaman web pada folder `AzmuhGlobal/templates`
+- Menyesusaikan kode pada `settings.py` agar file `base.html` dapat terdeteksi
+- Menyesusaikan kode pada `main.html` yang ada pada folder `main/templates`
+- Membuat file `forms.py` sebagai struktur _form_ yang dapat menerima data item baru
+- Menyesuaikan kode pada `views.py` dengan menambahkan beberapa import, membuat fungsi `create_item`, dan mengubah isi dari fungsi `show_main`
+- Menyesuaikan kode pada `urls.py` dengan menambahkan import fungsi `create_item` dan menambahkan path url-nya ke dalam `urlpatterns`
+- Membuat file `create_item` pada folder `main/templates`
+- Menyesuaikan kode pada `main.html` untuk menampilkan data item derta tombol _Add New Item_ dengan menambahkan kode pada `{% block content %}`
+- Menyesuaikan kode pada `views.py` dengan menambahkan beberapa import dan membuat fungsi `show_xml`, `show_json`, `show_xml_by_id`, dan `show_json_by_id`
+- Menyesuaikan kode pada `urls.py` dengan menambahkan import fungsi `show_xml`, `show_json`, `show_xml_by_id`, dan `show_json_by_id` dan mebambahkan path url keempat fungsi tersebut ke dalam `urlpatterns`
+
+1. **HTML**
+<img src= '/assets/postman_html.png'>
+
+2. **XML**
+<img src= '/assets/postman_xml.png'>
+
+3. **JSON**
+<img src= '/assets/postman_json.png'>
+
+4. **XML by ID**
+<img src= '/assets/postman_xml-by-id.png'>
+
+5. **JSON by ID**
+<img src= '/assets/postman_json-by-id.png'>
+
+
+## Tugas 2:
+
 
 ### Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara _step-by-step_ (bukan hanya sekadar mengikuti tutorial).
 
