@@ -8,12 +8,14 @@ from main.models import Item
 
 def show_main(request):
     items = Item.objects.all()
+    item_count = items.count()
 
     context = {
         'name': 'Muhammad Azmi Falah',
         'npm': '2206082285',
         'class': 'PBP B',
-        'items': items
+        'items': items,
+        'amount_items': item_count,
     }
 
     return render(request, "main.html", context)
