@@ -2,6 +2,78 @@
 
 **Tautan _Adaptable_**: [Azmuh Global](https://azmuhglobal.adaptable.app/main/)
 
+## Tugas 4
+
+
+ ### Apa itu `Django UserCreationForm`, dan jelaskan apa kelebihan dan kekurangannya?
+
+- Django `UserCreationForm` adalah sebuah kelas yang disediakan oleh Django, sebuah kerangka kerja pengembangan web Python. `UserCreationForm` adalah formulir bawaan yang memudahkan proses pembuatan formulir pendaftaran pengguna dalam aplikasi web. Dengan menggunakan `UserCreationForm`, pengembang dapat mengimplementasikan fungsionalitas pendaftaran pengguna dengan mudah tanpa harus menulis kode dari awal.
+
+*Kelebihannya:*
+- **Mudah Digunakan**: `UserCreationForm` menyediakan metode dan fungsi bawaan yang memudahkan pembuatan formulir pendaftaran pengguna. Ini mengurangi waktu dan usaha yang diperlukan untuk mengimplementasikan fungsionalitas pendaftaran pengguna.
+
+- **Keamanan yang teruji**: `UserCreationForm` telah dirancang dengan memperhatikan praktik keamanan terbaik. Formulir ini menyertakan validasi bawaan untuk memastikan data yang diinput oleh pengguna valid dan aman.
+
+- **Integrasi yang baik dengan Django**: `UserCreationForm` sangat terintegrasi dengan Django dan kerangka kerja lainnya yang dapat digunakan dalam pengembangan web dengan Django. Ini memudahkan penggunaan dan penggunaan formulir ini dalam proyek Django yang ada.
+
+*Kekurangannya:*
+- **Keterbatasan kustomisasi**: `UserCreationForm` menyediakan fungsi bawaan untuk pendaftaran pengguna, tetapi kustomisasi lebih lanjut mungkin memerlukan penyesuaian tambahan. Jika proyek kita membutuhkan logika pendaftaran pengguna yang kompleks atau kustom, kita mungkin perlu menyesuaikan atau mengubah formulir ini secara manual.
+
+- **Tidak dapat memenuhi semua kebutuhan**: `UserCreationForm` dirancang untuk kasus penggunaan umum dalam pendaftaran pengguna. Namun, jika proyek kita memiliki kebutuhan khusus atau kompleks yang tidak dapat dipenuhi oleh UserCreationForm, kita mungkin perlu menggunakan pendekatan yang lebih kustom.
+
+
+ ### Apa perbedaan antara autentikasi dan otorisasi dalam konteks Django, dan mengapa keduanya penting?
+ 
+- Autentikasi dan otorisasi adalah dua konsep penting dalam keamanan web. Autentikasi adalah proses mengidentifikasi pengguna, sedangkan otorisasi adalah proses menentukan apakah pengguna memiliki izin untuk mengakses sumber daya tertentu. Dalam konteks Django, autentikasi dan otorisasi dapat digunakan untuk melindungi aplikasi web dari akses yang tidak sah. *Autentikasi memastikan bahwa hanya pengguna yang sah yang dapat mengakses aplikasi*, sedangkan *otorisasi memastikan bahwa pengguna hanya memiliki izin untuk mengakses sumber daya yang mereka perlukan*.
+
+Keduanya penting karena *autentikasi dan otorisasi bekerja bersama-sama untuk menciptakan lapisan keamanan yang komprehensif* dalam aplikasi web:
+
+- Autentikasi memastikan bahwa pengguna yang mengakses aplikasi adalah pengguna yang sah, sehingga melindungi akun pengguna dari akses yang tidak sah.
+
+- Otorisasi memastikan bahwa pengguna yang telah diautentikasi hanya memiliki akses ke sumber daya dan tindakan yang sesuai dengan izin mereka, sehingga melindungi data dan fungsionalitas aplikasi dari akses yang tidak sah atau tidak diinginkan.
+
+
+ ### Apa itu _cookies_ dalam konteks aplikasi web, dan bagaimana Django menggunakan _cookies_ untuk mengelola data sesi pengguna?
+
+Dalam konteks aplikasi web, _cookies_ adalah file teks kecil yang disimpan di browser pengguna. _Cookies_ dapat digunakan untuk menyimpan berbagai informasi, seperti data sesi pengguna, preferensi pengguna, dan informasi pemasaran.
+
+Berikut adalah cara Django menggunakan _cookie_ untuk mengelola data sesi pengguna:
+
+- Saat pengguna masuk ke aplikasi web, Django membuat ID sesi pengguna baru. ID sesi pengguna adalah nilai unik yang digunakan untuk mengidentifikasi pengguna dalam sesi.
+- Django menyimpan ID sesi pengguna dalam _cookie_ dan mengirimkan _cookie_ ke browser pengguna.
+- Browser pengguna menyimpan _cookie_ di komputer pengguna.
+- Setiap kali pengguna mengunjungi halaman di aplikasi web, browser pengguna mengirimkan _cookie_ ke server.
+- Django menggunakan ID sesi pengguna untuk mengidentifikasi pengguna dan autentikasi pengguna.
+
+
+ ### Apakah penggunaan _cookies_ aman secara _default_ dalam pengembangan web, atau apakah ada risiko potensial yang harus diwaspadai?
+
+Pada dasarnya, penggunaan _cookie_ tidak aman secara default dalam pengembangan web. Ada beberapa risiko potensial yang harus diwaspadai, di antaranya:
+
+- **Kebocoran data**: _Cookie_ dapat digunakan untuk mencuri informasi sensitif, seperti nama pengguna, kata sandi, dan informasi keuangan.
+- **Pelacakan**: _Cookie_ dapat digunakan untuk melacak perilaku pengguna di situs web dan aplikasi web.
+- **Kerusakan**: Cookie yang tidak valid atau berbahaya dapat menyebabkan kerusakan pada browser web atau perangkat pengguna.
+
+
+ ### Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara _step-by-step_ (bukan hanya sekadar mengikuti tutorial).
+
+- Menjalankan virtual environment
+- Menyesuaikan kode pada `views.py` dengan membuat fungsi `register` dan menambahkan beberapa import seperti `redirect`, `UserCreationForm`, dan `messages`
+- Membuat file `register.html`
+- Menyesuaikan kode pada `urls.py` dengan menambahkan import `register` dan menambahkan path url-nya ke dalam `urlpatterns`
+- Menyesuaikan kode pada `views.py` dengan membuat fungsi `login_user` dan menambahkan beberapa import seperti `authenticate` dan `login`
+- Membuat file `login.html`
+- Menyesuaikan kode pada `urls.py` dengan menambahkan import `login_user` dan menambahkan path url-nya ke dalam `urlpatterns`
+- Menyesuaikan kode pada `views.py` dengan membuat fungsi `logout_user` dan menambahkan import `logout`
+- Mennyesuaikan koede pada `main.html` dengan menambahkan _button_ `logout`
+- Menyesuaikan kode pada `urls.py` dengan menambahkan import `logout_user` dan menambahkan path url-nya ke dalam `urlpatterns`
+- Menyesuaikan kode pada `views.py` dengan menambahkan import `login_required` dan menambahkan kode agar halaman _main_ dapat diakses dengan menambahkan kode baru di atas fungsi `show_main`
+- Menyesuaikan kode pada `views.py` dengan menyesuaikan fungsi `login_user`, kemudian menambahkan beberapa import seperti `datetime`, `HttpResponseRedirect`, dan `reverse`, kemudian menambahkan kode baru pada variabel `context`, dan mengubah isi kode pada fungsi `logout_user`
+- Menyesuaikan kode pada `main.html` dengan menambahkan kode baru untuk menampilkan data _last login_
+- Menyesuaikan kode pada `models.py` dengan menambahkan import `user` dan menambahkan kode baru pada model `Item` untuk menghubungkan satu item dengan satu user
+- Menyesuaikan kode pada `views.py` dengan mengubah kode dari fungsi `create_item` dan mengubah kode dari fungsi `show_main` agar item yang terdaftar sesuai dengan pengguna yang sedang login
+
+
 ## Tugas 3:
 
 
