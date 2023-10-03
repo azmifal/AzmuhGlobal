@@ -2,8 +2,72 @@
 
 **Tautan _Adaptable_**: [Azmuh Global](https://azmuhglobal.adaptable.app/main/)
 
-## Tugas 4
+## Tugas 5
 
+### Jelaskan manfaat dari setiap _element selector_ dan kapan waktu yang tepat untuk menggunakannya.
+
+1. **Element Selector**
+    - *Manfaat*: Selector elemen digunakan untuk memilih dan mengatur tampilan semua elemen dengan tipe yang sama dalam dokumen HTML. Contohnya, dapat digunakan untuk mengubah semua elemen paragraf `<p>` menjadi berwarna merah.
+    - *Penggunaan*: Selector elemen digunakan ketika ingin mengatur tampilan semua elemen dengan tipe yang sama di seluruh dokumen HTML.
+
+2. **ID Selector**
+    - *Manfaat*: Selector ID digunakan untuk memilih dan mengatur tampilan elemen dengan atribut ID yang unik dalam dokumen HTML. Setiap elemen hanya memiliki satu ID, sehingga berguna untuk mengatur tampilan elemen tertentu yang ingin dimodifikasi.
+    - *Penggunaan*: Selector ID digunakan ketika ingin mengatur tampilan elemen tunggal dengan atribut ID yang unik dalam dokumen HTML.
+
+3. **Class Selector**
+    - *Manfaat*: Selector kelas digunakan untuk memilih dan mengatur tampilan elemen dengan atribut kelas yang sama dalam dokumen HTML. Digunakan untuk mengatur tampilan beberapa elemen yang memiliki atribut kelas yang sama secara bersamaan.
+    - *Penggunaan*: Selector kelas digunakan ketika ingin mengatur tampilan beberapa elemen dengan atribut kelas yang sama dalam dokumen HTML.
+
+4. **Attribute Selector**
+    - *Manfaat*: Selector atribut digunakan untuk memilih dan mengatur tampilan elemen berdasarkan atribut atau nilai atributnya. Digunakan untuk memilih elemen dengan atribut tertentu atau elemen yang memiliki atribut dengan nilai tertentu.
+    - *Penggunaan*: Selector atribut digunakan ketika ingin mengatur tampilan elemen berdasarkan atribut atau nilai atributnya dalam dokumen HTML.
+
+5. **Pseudo-Class Selector**
+    - **Manfaat*: Selector pseudo-class digunakan untuk memilih dan mengatur tampilan elemen berdasarkan keadaan atau statusnya. Digunakan untuk mengatur tampilan elemen saat diklik, saat diarahkan dengan kursor, atau saat berada dalam keadaan tertentu.
+    - *Penggunaan*: Selector pseudo-class digunakan ketika ingin mengatur tampilan elemen secara dinamis berdasarkan keadaan atau statusnya dalam dokumen HTML.
+
+6. **Pseudo-Element Selector**
+    - *Manfaat*: Selector pseudo-element digunakan untuk memilih dan mengatur tampilan bagian-bagian tertentu dari elemen. Digunakan untuk mengatur tampilan teks yang berada dalam elemen `<p>` atau untuk menambahkan konten tambahan sebelum atau setelah elemen.
+    - *Penggunaan*: Selector pseudo-element digunakan ketika ingin mengatur tampilan bagian-bagian tertentu dari elemen dalam dokumen HTML.
+
+
+### Jelaskan HTML5 Tag yang kamu ketahui.
+
+- `<header>`: Digunakan untuk mendefinisikan bagian header atau kepala dari sebuah dokumen atau sebuah elemen.
+- `<nav>`: Digunakan untuk mendefinisikan bagian navigasi.
+- `<section>`: Digunakan untuk mengelompokkan konten yang terkait menjadi bagian yang berbeda.
+- `<main>`: Digunakan untuk menandai bagian konten utama.
+- `<title>`: Digunakan untuk menentukan judul halaman yang akan ditampilkan.
+- `<meta>`: Digunakan untuk menyediakan informasi meta tentang halaman, seperti deskripsi, kata kunci, dan sebagainya.
+- `<style>`: Digunakan untuk menentukan gaya CSS secara internal dalam file HTML.
+- `<body>`: Digunakan untuk memuat tempat konten utama halaman web berada, seperti teks, gambar, tautan, dan elemen-elemen lainnya.
+- `<h1> - <h6>`: Digunakan untuk membuat judul atau kepala dengan tingkat kepentingan yang berbeda. <h1> adalah yang paling tinggi, sedangkan <h6> adalah yang paling rendah.
+- `<p>`: Digunakan untuk menandai paragraf teks.
+- `<a>`: Digunakan untuk membuat tautan ke halaman web lain atau resource seperti gambar atau dokumen.
+- `<div>`: Digunakan untuk mengelompokkan dan memformat sejumlah elemen HTML.
+- `<input>`: Digunakan dalam formulir untuk membuat berbagai jenis kontrol input.
+- `<footer>`: Digunakan untuk menandai bagian bawah halaman web.
+
+
+### Jelaskan perbedaan antara margin dan padding.
+
+Margin dan padding adalah dua properti dalam CSS yang digunakan untuk mengatur ruang di sekitar elemen HTML. Dalam konteks penggunaan, berikut adalah beberapa perbedaan dalam penggunaan margin dan padding:
+- **Margin**: Digunakan untuk mengatur jarak antara elemen dengan elemen lain di sekitarnya. Contoh penggunaan margin adalah untuk mengatur jarak antara blok teks dan elemen tetangganya, atau untuk mengatur jarak antara elemen dan tepi halaman.
+- **Padding**: Digunakan untuk mengatur jarak antara konten elemen dan batas elemen itu sendiri. Contoh penggunaan padding adalah untuk mengatur jarak antara teks dan batas elemen, atau untuk memberikan ruang tambahan di sekitar elemen yang berisi gambar atau ikon.
+
+
+### Jelaskan perbedaan antara framework CSS Tailwind dan Bootstrap. Kapan sebaiknya kita menggunakan Bootstrap daripada Tailwind, dan sebaliknya?
+
+1. **Bootstrap**: Bootstrap adalah framework CSS yang lebih tua dan lebih besar dalam hal ukuran file. Ia menyediakan banyak komponen dan fitur siap pakai seperti tab navigasi contohnya. Bootstrap lebih fokus pada pengembangan komponen secara menyeluruh untuk penggunaan situs. Keuntungan menggunakan Bootstrap adalah kumpulan komponen yang luas, namun kekurangannya adalah ukuran file yang lebih besar dan kurangnya fleksibilitas dalam kustomisasi.
+
+2. **Tailwind**: Tailwind adalah framework CSS yang lebih baru dan lebih ringkas dibandingkan dengan Bootstrap. Ia dibangun berdasarkan konsep utility class, di mana semua properti CSS telah ditulis sebelumnya sebagai class yang dapat diterapkan langsung ke elemen HTML. Tailwind dirancang untuk menghasilkan elemen UI yang fungsional, rapi, dan fleksibel. Keuntungan menggunakan Tailwind adalah waktu pemuatan yang lebih cepat dan fleksibilitas dalam kustomisasi, namun kekurangannya adalah kurangnya komponen siap pakai seperti yang ada di Bootstrap.
+
+Kapan sebaiknya menggunakan Bootstrap daripada Tailwind, dan sebaliknya, tergantung pada kebutuhan proyek dan preferensi pengembang, berikut penjelasannya:
+- **Bootstrap**: Cocok digunakan jika memerlukan kumpulan komponen yang luas dan siap pakai, serta jika ukuran file bukanlah masalah yang signifikan. Bootstrap juga dapat menjadi pilihan yang baik jika ingin mengembangkan situs dengan cepat dan tidak memerlukan tingkat kustomisasi yang tinggi.
+- **Tailwind**: Cocok digunakan jika menginginkan fleksibilitas tinggi dalam kustomisasi tampilan situs web, serta jika peduli dengan waktu pemuatan yang cepat dan ukuran file yang lebih kecil. Tailwind juga dapat menjadi pilihan yang baik jika ingin membangun komponen UI yang unik dan tidak terikat dengan komponen siap pakai yang disediakan oleh Bootstrap.
+
+
+## Tugas 4
 
  ### Apa itu `Django UserCreationForm`, dan jelaskan apa kelebihan dan kekurangannya?
 
@@ -75,7 +139,6 @@ Pada dasarnya, penggunaan _cookie_ tidak aman secara default dalam pengembangan 
 
 
 ## Tugas 3:
-
 
 ### Apa perbedaan antara form `POST` dan `form` GET dalam Django?
 
@@ -150,7 +213,6 @@ Secara keseluruhan, JSON sering digunakan dalam pertukaran data di aplikasi web 
 
 
 ## Tugas 2:
-
 
 ### Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara _step-by-step_ (bukan hanya sekadar mengikuti tutorial).
 
