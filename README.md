@@ -41,7 +41,7 @@
 - `<meta>`: Digunakan untuk menyediakan informasi meta tentang halaman, seperti deskripsi, kata kunci, dan sebagainya.
 - `<style>`: Digunakan untuk menentukan gaya CSS secara internal dalam file HTML.
 - `<body>`: Digunakan untuk memuat tempat konten utama halaman web berada, seperti teks, gambar, tautan, dan elemen-elemen lainnya.
-- `<h1> - <h6>`: Digunakan untuk membuat judul atau kepala dengan tingkat kepentingan yang berbeda. <h1> adalah yang paling tinggi, sedangkan <h6> adalah yang paling rendah.
+- `<h1> - <h6>`: Digunakan untuk membuat judul atau kepala dengan tingkat kepentingan yang berbeda. `<h1>` adalah yang paling tinggi, sedangkan `<h6>` adalah yang paling rendah.
 - `<p>`: Digunakan untuk menandai paragraf teks.
 - `<a>`: Digunakan untuk membuat tautan ke halaman web lain atau resource seperti gambar atau dokumen.
 - `<div>`: Digunakan untuk mengelompokkan dan memformat sejumlah elemen HTML.
