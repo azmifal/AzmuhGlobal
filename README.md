@@ -2,12 +2,13 @@
 
 **Tautan _Adaptable_**: [Azmuh Global](https://azmuhglobal.adaptable.app/main/)
 
+----------
 ## Tugas 5
 
 ### Jelaskan manfaat dari setiap _element selector_ dan kapan waktu yang tepat untuk menggunakannya.
 
 1. **Element Selector**
-    - *Manfaat*: Selector elemen digunakan untuk memilih dan mengatur tampilan semua elemen dengan tipe yang sama dalam dokumen HTML. Contohnya, dapat digunakan untuk mengubah semua elemen paragraf `<p>` menjadi berwarna merah.
+    -  *Manfaat*: Selector elemen digunakan untuk memilih dan mengatur tampilan semua elemen dengan tipe yang sama dalam dokumen HTML. Contohnya, dapat digunakan untuk mengubah semua elemen paragraf `<p>` menjadi berwarna merah.
     - *Penggunaan*: Selector elemen digunakan ketika ingin mengatur tampilan semua elemen dengan tipe yang sama di seluruh dokumen HTML.
 
 2. **ID Selector**
@@ -67,6 +68,23 @@ Kapan sebaiknya menggunakan Bootstrap daripada Tailwind, dan sebaliknya, tergant
 - **Tailwind**: Cocok digunakan jika menginginkan fleksibilitas tinggi dalam kustomisasi tampilan situs web, serta jika peduli dengan waktu pemuatan yang cepat dan ukuran file yang lebih kecil. Tailwind juga dapat menjadi pilihan yang baik jika ingin membangun komponen UI yang unik dan tidak terikat dengan komponen siap pakai yang disediakan oleh Bootstrap.
 
 
+ ### Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara _step-by-step_ (bukan hanya sekadar mengikuti tutorial).
+
+- Menyesuaikan kode pada `base.html` dengan menambahkan tag `<meta name="viewport">` agar tampilan halaman web dapat menyesuaikan ukuran dan perilaku perangkat _mobile_
+- Menambahkan Bootstrap CSS dan JS pada `base.html`
+- Menyesuaikan kode pada `views.py` dengan membuat fungsi `edit_item`
+- Menyesuaikan kode pada `urls.py` dengan menambahkan import `edit_item` dan menambahkan path url-nya ke dalam `urlpatterns`
+- Membuat file `edit_item.html`
+- Menyesuaikan kode pada `main.html` agar tombol _edit_ dapat terlihat pada setiap baris tabel
+- Menyesuaikan kode pada `views.py` dengan membuat fungsi `delete_item`
+- Menyesuaikan kode pada `urls.py` dengan menambahkan import `delete_item` dan menambahkan path url-nya ke dalam `urlpatterns`
+- Menyesuaikan kode pada `main.html` agar tombol _delete_ dapat terlihat pada setiap baris tabel
+
+- Kustomisasi desain pada template html:
+    - Menyesuaikan kode pada `main.html` agar tampilannya lebih menarik sesuai keinginan saya. Saya mengubah warna backgroundnya menjadi hitam, mengubah font yang digunakan dengan font _Futura_, kemudian menempatpan posisi tampilan menjadi di tengah.
+    - Menyesuaikan kode pada `login.html`, `register.html`, `create_item.html`, dan `edit_item.html` dengan mengubah warna background menjadi hitam, mengubah font yang digunakan dengan font _Futura_, menempatkan posisi tampilan menjadi di tengah, kemudian mengubah tampilan button-button tersebut agar dapat berganti warna.
+
+----------
 ## Tugas 4
 
  ### Apa itu `Django UserCreationForm`, dan jelaskan apa kelebihan dan kekurangannya?
@@ -138,6 +156,7 @@ Pada dasarnya, penggunaan _cookie_ tidak aman secara default dalam pengembangan 
 - Menyesuaikan kode pada `views.py` dengan mengubah kode dari fungsi `create_item` dan mengubah kode dari fungsi `show_main` agar item yang terdaftar sesuai dengan pengguna yang sedang login
 
 
+----------
 ## Tugas 3:
 
 ### Apa perbedaan antara form `POST` dan `form` GET dalam Django?
@@ -212,6 +231,7 @@ Secara keseluruhan, JSON sering digunakan dalam pertukaran data di aplikasi web 
 <img src= '/assets/postman_json-by-id.png'>
 
 
+----------
 ## Tugas 2:
 
 ### Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara _step-by-step_ (bukan hanya sekadar mengikuti tutorial).

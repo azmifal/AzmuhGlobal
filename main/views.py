@@ -39,6 +39,23 @@ def create_item(request):
     context = {'form': form}
     return render(request, "create_item.html", context)
 
+def edit_item(request, id):
+    item = Item.objects.get(pk = id)    # Get item berdasarkan ID
+
+    form = ItemForm(request.POST or None, instance=item)     # Set item sebagai instance dari form
+
+    if form.is_valid() and request.method == "POST":
+        form.save() # Simpan form dan kembali ke halaman awal
+        return HttpResponseRedirect(reverse('main:show_main'))
+
+    context = {'form': form}
+    return render(request, "edit_item.html", context)
+
+def delete_item(request, id):
+    item = Item.objects.get(pk = id)    # Get data berdasarkan ID
+    item.delete()   # Hapus data
+    return HttpResponseRedirect(reverse('main:show_main'))  # Kembali ke halaman awal
+
 def show_xml(request):
     data = Item.objects.all()
     return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")

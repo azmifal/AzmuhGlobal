@@ -5,22 +5,70 @@
 {% endblock meta %}
 
 {% block content %}
+<style>
+    body {
+        background-color: black;
+        color: white;
+        font-family: 'Futura';
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
 
-<div class = "login">
+    h1,
+    h5 {
+        font-weight: bold;
+    }
 
-    <h1>Login</h1>
+    .login {
+        text-align: center;
+        margin-top: 20px;
+    }
 
+    .login label {
+        font-weight: normal;
+        margin-right: 10px; /* Memberikan jarak kanan pada label */
+    }
+
+    .login input[type="text"],
+    .login input[type="password"] {
+        margin-bottom: 10px; /* Memberikan jarak bawah pada input */
+        max-width: 100%; /* Menjadikan lebar maksimum untuk input */
+    }
+
+    .login_btn {
+        background-color: white;
+        color: blue;
+        transition: background-color 0.3s, color 0.3s;
+        margin-top: 10px; /* Memberikan jarak atas pada tombol login */
+        width: 100%; /* Mengisi seluruh lebar yang tersedia */
+    }
+
+    .login_btn:hover {
+        background-color: blue;
+        color: white;
+    }
+
+    .register-link {
+        margin-top: 10px;
+    }
+</style>
+
+<div class="login">
+    <h1 class="text-center">Login</h1>
     <form method="POST" action="">
         {% csrf_token %}
         <table>
             <tr>
-                <td>Username: </td>
-                <td><input type="text" name="username" placeholder="Username" class="form-control"></td>
+                <td><label for="username">Username:</label></td>
+                <td><input type="text" name="username" id="username" placeholder="Username" class="form-control"></td>
             </tr>
-                    
+
             <tr>
-                <td>Password: </td>
-                <td><input type="password" name="password" placeholder="Password" class="form-control"></td>
+                <td><label for="password">Password:</label></td>
+                <td><input type="password" name="password" id="password" placeholder="Password" class="form-control"></td>
             </tr>
 
             <tr>
@@ -36,10 +84,8 @@
                 <li>{{ message }}</li>
             {% endfor %}
         </ul>
-    {% endif %}     
-        
-    Don't have an account yet? <a href="{% url 'main:register' %}">Register Now</a>
+    {% endif %}
 
+    <p class="text-center register-link">Don't have an account yet? <a href="{% url 'main:register' %}">Register Now</a></p>
 </div>
-
 {% endblock content %}
