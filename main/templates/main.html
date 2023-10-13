@@ -14,30 +14,52 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh; /* Menggunakan tinggi 100vh untuk mengisi seluruh tinggi viewport */
+            height: 100vh;
         }
 
-        h1,
-        h5 {
+        h1, h5 {
             font-weight: bold;
         }
 
-        table {
+        .card {
             background-color: black;
-            border-collapse: separate; /* Membuat lekukan pada ujung tabel */
-            border-spacing: 10 10px; /* Mengatur jarak antar baris */
+            border: 5px solid white;
+            border-radius: 10px;
+            margin: 10px;
+            color: white;
         }
 
-        table th,
-        table td {
-            padding: 10px 10px; /* Mengatur padding pada sel tabel */
-            border-radius: 15px; /* Mengatur sudut elemen tabel */
+        .card-header {
+            background-color: black;
+            border-bottom: 2px solid white;
+        }
+
+        .card-body {
+            padding: 10px;
+        }
+
+        .card-title {
+            font-weight: bold;
+        }
+
+        .btn-card {
+            margin: 5px;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .scrollable {
+            max-height: 550px; /* Set a max height for the card section */
+            overflow-y: auto; /* Enable vertical scrolling if cards exceed max height */
         }
     </style>
 
     <div class="container mt-5">
-        <h1 class="text-center">Azmuh Global Page</h1>
-
+        <h1 class="text-center mb-4">Azmuh Global Page</h1>
         <div class="row mt-4">
             <div class="col-md-6">
                 <h5>Name:</h5>
@@ -51,42 +73,67 @@
             </div>
             <div class="col-md-6">
                 <h5>Total Items:</h5>
-                <p>{{amount_items}}</p>
+                <p id="total-items">{{amount_items}}</p>
 
                 <h5>Sesi terakhir login:</h5>
                 <p>{{ last_login }}</p>
             </div>
         </div>
 
-        <table class="table table-bordered mt-5">
-            <thead class="bg-dark text-light">
-                <tr>
-                    <th>Name</th>
-                    <th>Amount</th>
-                    <th>Description</th>
-                    <th>Date Added</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
+        <div class="scrollable">
+            <div class="row" id="items-container">
                 {% for item in items %}
-                    <tr>
-                        <td>{{item.name}}</td>
-                        <td>{{item.amount}}</td>
-                        <td>{{item.description}}</td>
-                        <td>{{item.date_added}}</td>
-                        <td>
-                            <a href="{% url 'main:edit_item' item.pk %}" class="btn btn-warning btn-sm">
-                                Edit
-                            </a>
-                            <a href="{% url 'main:delete_item' item.pk %}" class="btn btn-danger btn-sm">
-                                Delete
-                            </a>
-                        </td>
-                    </tr>
+                    <div class="col-md-4">
+                        <div class="card" id="item-card-{{ item.pk }}">
+                            <div class="card-header">
+                                <h5 class="card-title">{{ item.name }}</h5>
+                            </div>
+                            <div class="card-body">
+                                <p>Amount: {{ item.amount }}</p>
+                                <p>Description: {{ item.description }}</p>
+                                <p>Date Added: {{ item.date_added }}</p>
+                                <a href="{% url 'main:edit_item' item.pk %}" class="btn btn-warning btn-card">Edit</a>
+                                <button class="btn btn-danger btn-card" onclick="deleteItem('{{ item.pk }}')">Delete</button>
+                            </div>
+                        </div>
+                    </div>
                 {% endfor %}
-            </tbody>
-        </table>
+            </div>
+        </div>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: black;">Add New Item</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="form" onsubmit="return false;">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <label for="name" class="col-form-label" style="color: black;">Name:</label>
+                                <input type="text" class="form-control" id="name" name="name"></input>
+                            </div>
+                            <div class="mb-3">
+                                <label for="amount" class="col-form-label" style="color: black;">Amount:</label>
+                                <input type="number" class="form-control" id="amount" name="amount"></input>
+                            </div>
+                            <div class="mb-3">
+                                <label for="description" class="col-form-label" style="color: black;">Description:</label>
+                                <textarea class="form-control" id="description" name="description"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="button_add" data-bs-dismiss="modal">Add Item</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Item by AJAX</button>
 
         <div class="text-center mt-3">
             <a href="{% url 'main:create_item' %}" class="btn btn-success">
@@ -98,4 +145,77 @@
             </a>
         </div>
     </div>
+
+    <script>
+        async function getItems() {
+            return fetch("{% url 'main:get_item_json' %}").then((res) => res.json())
+        }
+
+        async function refreshItems() {
+            const itemsContainer = document.getElementById("items-container");
+            const totalItems = document.getElementById("total-items");
+            const items = await getItems();
+            
+            itemsContainer.innerHTML = "";
+            items.forEach((item) => {
+                const card = document.createElement("div");
+                card.classList.add("col-md-4");
+                card.innerHTML = `
+                    <div class="card" id="item-card-${item.pk}">
+                        <div class="card-header">
+                            <h5 class="card-title">${item.fields.name}</h5>
+                        </div>
+                        <div class="card-body">
+                            <p>Amount: ${item.fields.amount}</p>
+                            <p>Description: ${item.fields.description}</p>
+                            <p>Date Added: ${item.fields.date_added}</p>
+                            <button class="btn btn-warning btn-card" onclick="editItem(${item.pk})">Edit</button>
+                            <button class="btn btn-danger btn-card" onclick="deleteItem(${item.pk})">Delete</button>
+                        </div>
+                    </div>
+                `;
+                itemsContainer.appendChild(card);
+            });
+            totalItems.textContent = items.length;
+        }
+
+        refreshItems();
+
+        function addItem() {
+            fetch("{% url 'main:add_item_ajax' %}", {
+                method: "POST",
+                body: new FormData(document.querySelector('#form'))
+            }).then(() => {
+                refreshItems();
+                document.getElementById("form").reset();
+            });
+            return false;
+        }
+
+        document.getElementById("button_add").onclick = addItem;
+
+        function editItem(itemId) {
+            window.location.href = `/edit_item/${itemId}`;
+            return false; // To prevent the default link behavior
+        }
+
+        async function deleteItem(itemId) {
+            const response = await fetch(`{% url 'main:delete_item_ajax' 0 %}`.replace("0", itemId), {
+                method: "DELETE"
+            });
+
+            if (response.ok) {
+                    const itemCard = document.getElementById(`item-card-${itemId}`);
+                    if (itemCard) {
+                        itemCard.remove();
+                        const totalItems = document.getElementById("total-items");
+                        totalItems.textContent = parseInt(totalItems.textContent) - 1;
+                        refreshItems()
+                    }
+            } else {
+                alert("Failed to delete item.");
+            }
+        }
+
+    </script>
 {% endblock content %}

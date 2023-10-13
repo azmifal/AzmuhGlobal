@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 from django.core import serializers
@@ -8,6 +8,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages  
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_exempt
 import datetime
 
 @login_required(login_url='/login')
@@ -25,6 +26,21 @@ def show_main(request):
     }
 
     return render(request, "main.html", context)
+
+@csrf_exempt
+def add_item_ajax(request):
+    if request.method == 'POST':
+        name = request.POST.get("name")
+        amount = request.POST.get("amount")
+        description = request.POST.get("description")
+        user = request.user
+
+        new_item = Item(name=name, amount=amount, description=description, user=user)
+        new_item.save()
+
+        return HttpResponse(b"CREATED", status=201)
+
+    return HttpResponseNotFound()
 
 def create_item(request):
     form = ItemForm(request.POST or None)
@@ -56,6 +72,14 @@ def delete_item(request, id):
     item.delete()   # Hapus data
     return HttpResponseRedirect(reverse('main:show_main'))  # Kembali ke halaman awal
 
+@csrf_exempt
+def delete_item_ajax(request, id):
+    if request.method == 'DELETE':
+        item = get_object_or_404(Item, pk=id, user=request.user)
+        item.delete()
+        return HttpResponse(status=204)
+    return HttpResponseNotFound()
+
 def show_xml(request):
     data = Item.objects.all()
     return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
@@ -71,6 +95,10 @@ def show_xml_by_id(request, id):
 def show_json_by_id(request, id):
     data = Item.objects.filter(pk=id)
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+
+def get_item_json(request):
+    item_items = Item.objects.filter(user=request.user)
+    return HttpResponse(serializers.serialize('json', item_items))
 
 def register(request):
     form = UserCreationForm()

@@ -2,6 +2,84 @@
 
 **Tautan _Adaptable_**: [Azmuh Global](https://azmuhglobal.adaptable.app/main/)
 
+
+----------
+## Tugas 6
+
+### Jelaskan perbedaan antara _asynchronous programming_ dengan _synchronous programming_.
+
+_Asynchronous programming_ dan _synchronous programming_ adalah dua pendekatan yang berbeda dalam pemrograman. Berikut adalah perbedaan antara keduanya:
+
+- **Asynchronous Programming** :
+    - _Asynchronous programming_ adalah pendekatan pemrograman di mana tugas-tugas dapat dieksekusi secara independen tanpa harus menunggu tugas sebelumnya selesai.
+    - Dalam _asynchronous programming_, tugas-tugas dapat dieksekusi secara bersamaan atau dalam urutan yang tidak terikat.
+    - Proses eksekusi tugas dalam _asynchronous programming_ bersifat _non-blocking_, yang berarti tugas berikutnya dapat dimulai segera setelah tugas sebelumnya dimulai, tanpa harus menunggu tugas sebelumnya selesai.
+    - _Asynchronous programming_ cocok untuk tugas yang kompleks, memerlukan waktu yang lama untuk dieksekusi, atau memerlukan akses ke sumber daya eksternal seperti jaringan atau database.
+
+    Dalam _asynchronous programming_, umumnya digunakan konsep seperti _callback_, _promise_, _coroutine_, atau _async/await_ untuk mengelola tugas-tugas yang _asynchronou_. Ini memungkinkan pemrogram untuk menulis kode yang lebih efisien dan responsif, karena tugas-tugas yang memerlukan waktu lama dapat dieksekusi secara paralel atau di latar belakang tanpa menghentikan eksekusi tugas-tugas lainnya.
+
+- **Synchronous Programming** :
+    - _Synchronous programming_ adalah pendekatan pemrograman di mana setiap tugas dieksekusi secara berurutan, satu per satu.
+    - Dalam _synchronous programming_, setiap tugas harus menunggu tugas sebelumnya selesai sebelum dapat dieksekusi.
+    - Proses eksekusi tugas dalam _synchronous programming_ bersifat _blocking_, yang berarti tugas berikutnya tidak dapat dimulai sampai tugas sebelumnya selesai.
+    - _Synchronous programming_ cocok untuk tugas yang sederhana dan tidak memerlukan waktu yang lama untuk dieksekusi.
+
+### Dalam penerapan JavaScript dan AJAX, terdapat penerapan paradigma _event-driven programming_. Jelaskan maksud dari paradigma tersebut dan sebutkan salah satu contoh penerapannya pada tugas ini.
+
+*event-driven programming* adalah paradigma pemrograman komputer di mana aliran program ditentukan oleh peristiwa, seperti tindakan pengguna atau pemberitahuan dari sistem. Dalam paradigma ini, program menunggu peristiwa terjadi, lalu meresponsnya sesuai kejadian tersebut. JavaScript sangat cocok untuk _event-driven programming_ ini karena sifatnya yang asinkron, yang memungkinkan eksekusi kode tanpa pemblokiran.
+
+Dalam konteks JavaScript dan AJAX, _event-driven programming_ digunakan untuk menangani interaksi pengguna dengan halaman web. Sebagai contoh, ketika seorang pengguna mengklik tombol, sebuah peristiwa dipicu, dan fungsi kustom dapat dieksekusi sebagai respons terhadap peristiwa tersebut. Hal ini memungkinkan pembuatan halaman web yang lebih interaktif dan responsif, karena pengguna dapat berinteraksi dengan elemen-elemen pada halaman dan mendapatkan respons sesuai dengan tindakan mereka.
+
+Dalam tugas yang diberikan, salah satu contoh penerapan _event-driven programming_ adalah penggunaan _event listener_ untuk menangani interaksi pengguna dengan katalog buku. Setiap buku dalam katalog dapat memiliki tombol atau tautan yang terkait, dan ketika pengguna mengklik tombol atau tautan tersebut, sebuah peristiwa dipicu, dan fungsi kustom dapat dieksekusi untuk melakukan tindakan tertentu, seperti menampilkan informasi lebih lanjut tentang buku atau menambahkannya ke daftar bacaan pengguna. Hal ini meningkatkan pengalaman pengguna dan membuat aplikasi web lebih interaktif serta responsif.
+
+### Jelaskan penerapan _asynchronous programming_ pada AJAX.
+
+_Asynchronous programming_ diterapkan dalam AJAX (Asynchronous JavaScript and XML) untuk memungkinkan aplikasi web mengirim dan menerima data dari server tanpa harus me-_refresh_ seluruh halaman.
+
+- **Asynchronous Communication**: AJAX menggunakan transfer data _asynchronous_ (permintaan HTTP) antara browser dan server web. Hal ini memungkinkan halaman web untuk memanggil informasi kecil atau seluruh data dari server tanpa me-_refresh_ halaman atau melakukan _postback_. Komunikasi _asynchronous_ memastikan bahwa halaman web tetap dapat diakses oleh pengguna sementara data diproses di latar belakang.
+
+- **Objek XMLHttpRequest**: AJAX menggunakan objek XMLHttpRequest, yang merupakan fitur bawaan dalam JavaScript, untuk menangani komunikasi _asynchronous_ dengan server. Objek ini memungkinkan aplikasi web untuk mengirim permintaan ke server dan menerima tanggapan tanpa memblokir interaksi pengguna dengan halaman.
+
+- **Event-driven Programming**: AJAX mengikuti model pemrograman berbasis _event_, di mana aplikasi web mendaftarkan _event handler_ untuk menangani tanggapan dari server. Hal ini memungkinkan aplikasi untuk terus menjalankan tugas lain sambil menunggu tanggapan dari server.
+
+- **Callback Functions**: AJAX menggunakan _callback functions_ untuk menangani tanggapan dari server. Ketika tanggapan diterima, _callback function_ dieksekusi, memungkinkan aplikasi untuk memproses data dan memperbarui halaman web sesuai dengan tanggapan tersebut.
+
+- **Format Data JSON**: Meskipun AJAX awalnya menggunakan XML untuk pertukaran data, pengembang telah mulai menggantinya dengan JSON karena kemiripannya dengan JavaScript. JSON adalah format data ringan yang dapat dengan mudah di-parse oleh JavaScript, sehingga lebih cocok untuk komunikasi _asynchronous_.
+
+Dengan mengimplementasikan _asynchronous programming_, AJAX memungkinkan aplikasi web memberikan pengalaman yang lebih responsif dan ramah pengguna dengan memperbarui bagian-bagian tertentu dari halaman tanpa me-_refresh_ seluruh konten.
+
+
+### Pada PBP kali ini, penerapan AJAX dilakukan dengan menggunakan Fetch API daripada _library_ jQuery. Bandingkanlah kedua teknologi tersebut dan tuliskan pendapat kamu teknologi manakah yang lebih baik untuk digunakan.
+
+Fetch API dan jQuery AJAX adalah dua teknologi yang digunakan untuk melakukan permintaan asinkron pada aplikasi web. Berikut adalah perbandingan antara kedua teknologi tersebut:
+
+- **Fetch API**:
+    - Fetch API adalah bagian dari JavaScript dan merupakan API bawaan dari browser.
+    - Fetch API menggunakan _Promise_ untuk menangani respons dari server.
+    - Fetch API lebih mudah digunakan dan memiliki sintaks yang lebih sederhana.
+    - Fetch API lebih ringan dan lebih cepat daripada jQuery AJAX.
+    - Fetch API tidak memerlukan _library_ tambahan.
+
+- **jQuery AJAX**:
+    - jQuery AJAX adalah _library_ JavaScript yang harus diunduh dan diinstal terlebih dahulu.
+    - jQuery AJAX menggunakan _callback function_ untuk menangani respons dari server.
+    - jQuery AJAX memiliki fitur yang lebih lengkap dan lebih banyak opsi konfigurasi.
+    - jQuery AJAX lebih mudah digunakan untuk melakukan permintaan _cross-domain_.
+    - jQuery AJAX lebih kompatibel dengan browser yang lebih lama.
+
+Pilihan antara Fetch API dan jQuery AJAX tergantung pada kebutuhan dan preferensi pengembang. Jika pengembang ingin menggunakan teknologi yang lebih ringan dan lebih cepat, maka Fetch API adalah pilihan yang tepat. Namun, jika pengembang memerlukan fitur yang lebih lengkap dan lebih banyak opsi konfigurasi, maka jQuery AJAX adalah pilihan yang lebih baik. Selain itu, jika pengembang ingin mendukung browser yang lebih lama, maka jQuery AJAX adalah pilihan yang lebih kompatibel.
+
+
+### Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara _step-by-step_ (bukan hanya sekadar mengikuti tutorial).
+
+- Menyesuaikan kode pada `views.py` dengan membuat fungsi `get_item_json` dan `add_item_ajax`
+- Menyesuaikan kode pada `urls.py` dengan menambahkan import `get_item_json` dan `add_item_ajax` dan menambahkan path url-nya ke dalam `urlpatterns`
+- Menyesuaikan kode pada `main.html` dengan menambahkan blok `<script>` dan membuat fungsi `getItems`, `refreshItems`, dan `addItems` di dalam blok kode `<scirpt>`
+- Menyesuaikan kode pada `main.html` dengan menerapkan Cards data item yang dapat mendukung AJAX GET
+- Menyesuaikan juga kode pada `views.py` dengan membuat fungsi `delete_item_ajax_`
+- Menyesuaikan kode pada `urls.py` dengan menambahkan import `delete_item_ajax` dan menambahkan path url-nya ke dalam `urlpatterns`
+- Menyesuaikan kode pada `main.html` dengan menambahkan fitur _delete_ yang dapat mendukung AJAX DELETE
+
 ----------
 ## Tugas 5
 
@@ -68,7 +146,7 @@ Kapan sebaiknya menggunakan Bootstrap daripada Tailwind, dan sebaliknya, tergant
 - **Tailwind**: Cocok digunakan jika menginginkan fleksibilitas tinggi dalam kustomisasi tampilan situs web, serta jika peduli dengan waktu pemuatan yang cepat dan ukuran file yang lebih kecil. Tailwind juga dapat menjadi pilihan yang baik jika ingin membangun komponen UI yang unik dan tidak terikat dengan komponen siap pakai yang disediakan oleh Bootstrap.
 
 
- ### Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara _step-by-step_ (bukan hanya sekadar mengikuti tutorial).
+### Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara _step-by-step_ (bukan hanya sekadar mengikuti tutorial).
 
 - Menyesuaikan kode pada `base.html` dengan menambahkan tag `<meta name="viewport">` agar tampilan halaman web dapat menyesuaikan ukuran dan perilaku perangkat _mobile_
 - Menambahkan Bootstrap CSS dan JS pada `base.html`
